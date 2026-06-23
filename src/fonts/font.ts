@@ -1,0 +1,28 @@
+import localFont from "next/font/local";
+
+export const openRunde = localFont({
+    src: [
+        {
+            path: "./OpenRunde-Regular.woff",
+            weight: "400",
+            style: "normal",
+        },
+        {
+            path: "./OpenRunde-Medium.woff",
+            weight: "500",
+            style: "normal",
+        },
+        {
+            path: "./OpenRunde-SemiBold.woff",
+            weight: "600",
+            style: "normal",
+        },
+        {
+            path: "./OpenRunde-Bold.woff",
+            weight: "700",
+            style: "normal",
+        },
+    ],
+    variable: "--font-open-runde",
+    display: "swap",
+});
