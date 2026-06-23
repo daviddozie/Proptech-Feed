@@ -13,7 +13,7 @@ export const openRunde = localFont({
             style: "normal",
         },
         {
-            path: "./OpenRunde-SemiBold.woff",
+            path: "./OpenRunde-Semibold.woff",
             weight: "600",
             style: "normal",
         },
