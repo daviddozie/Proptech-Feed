@@ -17,7 +17,7 @@ Here is the mobile layout view along with a recorded demonstration showcasing th
 
 | Mobile View | Interaction Recording |
 |---|---|
-| ![Mobile Interface View](./public/mobile-view.png) | <video src="./public/mobile-record.mov" width="280" controls>Your browser does not support the video tag. You can download the video directly below.</video><br>[Download Mobile Recording Demo](./public/mobile-record.mov) |
+| ![Mobile Interface View](./public/mobile-view.png) | <video src="./public/mobile-record.mov" width="280" autoplay loop muted playsinline>Your browser does not support the video tag. You can download the video directly below.</video><br>[Download Mobile Recording Demo](./public/mobile-record.mov) |
 
 ---
 
