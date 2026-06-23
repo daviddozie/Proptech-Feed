@@ -1,6 +1,39 @@
 # Proptech Social Feed (Expert Listing)
 
-A modern, highly responsive proptech social feed application built as part of a Frontend Software Engineering assessment. The project is designed to replicate a detailed Figma specification, emphasizing performance, clean typography, and a seamless infinite scroll experience.
+A modern, highly responsive proptech social feed application built as part of a Frontend Software Engineering assessment. The project replicates a detailed Figma specification, emphasizing performance, clean typography, and a seamless infinite scroll experience.
+
+## Live Demo & Previews
+
+- **Live URL:** [https://proptech-feed.vercel.app/](https://proptech-feed.vercel.app/)
+
+### Visual Demonstration
+Below are visual previews of the application layout across desktop and mobile devices:
+
+#### Desktop Interface
+![Desktop Interface View](./public/desktop-view.png)
+
+#### Mobile Interface & Interaction Demo
+Here is the mobile layout view along with a recorded demonstration showcasing the infinite scroll loading, category filtering, and sticky header behaviors:
+
+| Mobile View | Interaction Recording |
+|---|---|
+| ![Mobile Interface View](./public/mobile-view.png) | <video src="./public/mobile-record.mov" width="280" controls>Your browser does not support the video tag. You can download the video directly below.</video><br>[Download Mobile Recording Demo](./public/mobile-record.mov) |
+
+---
+
+## Tech Stack
+
+The application was built using a modern, scalable frontend stack:
+
+- **Framework:** Next.js (v16.2.9) utilizing the App Router and Turbopack for lightning-fast builds
+- **Language:** TypeScript for strict static typing and clean interface declarations
+- **State & Query Management:** TanStack React Query (v5) for robust caching, fetching, and infinite-scroll state synchronization
+- **Styling:** Tailwind CSS (v4) for CSS-first utility styling and design token integration
+- **Component Primitives:** Shadcn/UI & Radix UI for accessible, unstyled foundation components
+- **Animations:** Framer Motion (v12) & tw-animate-css for micro-interactions and transitions
+- **Scroll Detection:** React Intersection Observer for viewport triggers
+
+---
 
 ## Getting Started
 
