@@ -17,14 +17,15 @@ import {
   messageIcon,
   rocketIcon,
   bookMarkIcon,
-  userIcon,
+  usersIcon,
 } from "@/assets";
+import { cn } from "@/lib/utils";
 
 const sidebarNavItems = [
   { label: "Messages", icon: messageIcon, width: 17, height: 12 },
   { label: "My Boosts", icon: rocketIcon, width: 16, height: 16 },
   { label: "Saved", icon: bookMarkIcon, width: 12, height: 16 },
-  { label: "Communities", icon: userIcon, width: 20, height: 13 },
+  { label: "Communities", icon: usersIcon, width: 20, height: 13 },
 ];
 
 const locations = ["Lekki Phase 1", "Ikeja", "Ikoyi", "Wuse, Abuja", "Victoria Island"];
@@ -33,15 +34,15 @@ const userTypes = ["Individual", "Agent", "Owner", "Developer"];
 
 export default function LeftSidebar() {
   return (
-    <aside className="w-full flex flex-col gap-4">
-      <div className="border border-card-border bg-card rounded-2xl py-3 px-3">
-        <div className="flex flex-col gap-1">
+    <aside className={cn('flex', 'flex-col', 'gap-4', 'w-full')}>
+      <div className={cn('bg-card', 'px-3', 'py-3', 'border', 'border-card-border', 'rounded-2xl')}>
+        <div className={cn('flex', 'flex-col', 'gap-1')}>
           {sidebarNavItems.map((item) => (
             <a
               key={item.label}
               href="#"
               onClick={(e) => e.preventDefault()}
-              className="flex items-center gap-3.5 px-3.5 py-3 rounded-xl text-text-secondary hover:text-text-primary hover:bg-neutral-900 transition-all font-medium text-base"
+              className={cn('flex', 'items-center', 'gap-3.5', 'hover:bg-neutral-900', 'px-3.5', 'py-3', 'rounded-xl', 'font-medium', 'text-text-secondary', 'hover:text-text-primary', 'text-base', 'transition-all')}
             >
               <Image src={item.icon} alt={item.label} width={item.width} height={item.height} />
               <span>{item.label}</span>
@@ -50,16 +51,16 @@ export default function LeftSidebar() {
         </div>
       </div>
 
-      <Accordion type="single" collapsible className="w-full bg-card border border-card-border rounded-2xl">
+      <Accordion type="single" collapsible className={cn('bg-card', 'border', 'border-card-border', 'rounded-2xl', 'w-full')}>
         {/* Location Accordion */}
-        <AccordionItem value="location" className="bg-card px-6 py-1 rounded-t-2xl">
-          <AccordionTrigger className="hover:no-underline font-medium text-base text-text-primary py-3">
+        <AccordionItem value="location" className={cn('bg-card', 'px-6', 'py-1', 'rounded-t-2xl')}>
+          <AccordionTrigger className={cn('py-3', 'font-medium', 'text-text-primary', 'text-base', 'hover:no-underline')}>
             Location
           </AccordionTrigger>
-          <AccordionContent className="pt-1 pb-4">
-            <div className="flex flex-col gap-2">
+          <AccordionContent className={cn('pt-1', 'pb-4')}>
+            <div className={cn('flex', 'flex-col', 'gap-2')}>
               {locations.map((loc) => (
-                <label key={loc} className="flex items-center gap-2.5 text-xs text-text-secondary cursor-pointer select-none hover:text-text-primary">
+                <label key={loc} className={cn('flex', 'items-center', 'gap-2.5', 'text-text-secondary', 'hover:text-text-primary', 'text-xs', 'cursor-pointer', 'select-none')}>
                   <Checkbox />
                   <span>{loc}</span>
                 </label>
@@ -69,14 +70,14 @@ export default function LeftSidebar() {
         </AccordionItem>
 
         {/* Listing Type Accordion */}
-        <AccordionItem value="listing-type" className="bg-card px-6 py-1">
-          <AccordionTrigger className="hover:no-underline font-medium text-base text-text-primary py-3">
+        <AccordionItem value="listing-type" className={cn('bg-card', 'px-6', 'py-1')}>
+          <AccordionTrigger className={cn('py-3', 'font-medium', 'text-text-primary', 'text-base', 'hover:no-underline')}>
             Listing Type
           </AccordionTrigger>
-          <AccordionContent className="pt-1 pb-4">
-            <div className="flex flex-col gap-2">
+          <AccordionContent className={cn('pt-1', 'pb-4')}>
+            <div className={cn('flex', 'flex-col', 'gap-2')}>
               {listingTypes.map((type) => (
-                <label key={type} className="flex items-center gap-2.5 text-xs text-text-secondary cursor-pointer select-none hover:text-text-primary">
+                <label key={type} className={cn('flex', 'items-center', 'gap-2.5', 'text-text-secondary', 'hover:text-text-primary', 'text-xs', 'cursor-pointer', 'select-none')}>
                   <Checkbox />
                   <span>{type}</span>
                 </label>
@@ -86,27 +87,27 @@ export default function LeftSidebar() {
         </AccordionItem>
 
         {/* Budget Accordion */}
-        <AccordionItem value="budget" className="bg-card px-6 py-1">
-          <AccordionTrigger className="hover:no-underline font-medium text-base text-text-primary py-3">
+        <AccordionItem value="budget" className={cn('bg-card', 'px-6', 'py-1')}>
+          <AccordionTrigger className={cn('py-3', 'font-medium', 'text-text-primary', 'text-base', 'hover:no-underline')}>
             Budget
           </AccordionTrigger>
-          <AccordionContent className="pt-1 pb-4">
-            <div className="flex flex-col gap-3">
-              <div className="flex gap-2">
-                <div className="flex-1 flex flex-col gap-1.5">
-                  <Label htmlFor="min-price" className="text-[10px] text-text-secondary font-medium">Min Price</Label>
+          <AccordionContent className={cn('pt-1', 'pb-4')}>
+            <div className={cn('flex', 'flex-col', 'gap-3')}>
+              <div className={cn('flex', 'gap-2')}>
+                <div className={cn('flex', 'flex-col', 'flex-1', 'gap-1.5')}>
+                  <Label htmlFor="min-price" className={cn('font-medium', 'text-[10px]', 'text-text-secondary')}>Min Price</Label>
                   <Input
                     id="min-price"
                     placeholder="Min"
-                    className="bg-neutral-900 border-border text-xs text-text-primary h-8 py-1 px-2.5 rounded-xl placeholder:text-muted-foreground/50 focus-visible:border-brand-green focus-visible:ring-0"
+                    className={cn('bg-neutral-900', 'px-2.5', 'py-1', 'border-border', 'focus-visible:border-brand-green', 'rounded-xl', 'focus-visible:ring-0', 'h-8', 'text-text-primary', 'placeholder:text-muted-foreground/50', 'text-xs')}
                   />
                 </div>
-                <div className="flex-1 flex flex-col gap-1.5">
-                  <Label htmlFor="max-price" className="text-[10px] text-text-secondary font-medium">Max Price</Label>
+                <div className={cn('flex', 'flex-col', 'flex-1', 'gap-1.5')}>
+                  <Label htmlFor="max-price" className={cn('font-medium', 'text-[10px]', 'text-text-secondary')}>Max Price</Label>
                   <Input
                     id="max-price"
                     placeholder="Max"
-                    className="bg-neutral-900 border-border text-xs text-text-primary h-8 py-1 px-2.5 rounded-xl placeholder:text-muted-foreground/50 focus-visible:border-brand-green focus-visible:ring-0"
+                    className={cn('bg-neutral-900', 'px-2.5', 'py-1', 'border-border', 'focus-visible:border-brand-green', 'rounded-xl', 'focus-visible:ring-0', 'h-8', 'text-text-primary', 'placeholder:text-muted-foreground/50', 'text-xs')}
                   />
                 </div>
               </div>
@@ -115,14 +116,14 @@ export default function LeftSidebar() {
         </AccordionItem>
 
         {/* User Type Accordion */}
-        <AccordionItem value="user-type" className="bg-card px-6 py-1 rounded-b-2xl">
-          <AccordionTrigger className="hover:no-underline font-medium text-base text-text-primary py-3">
+        <AccordionItem value="user-type" className={cn('bg-card', 'px-6', 'py-1', 'rounded-b-2xl')}>
+          <AccordionTrigger className={cn('py-3', 'font-medium', 'text-text-primary', 'text-base', 'hover:no-underline')}>
             User Type
           </AccordionTrigger>
-          <AccordionContent className="pt-1 pb-4">
-            <div className="flex flex-col gap-2">
+          <AccordionContent className={cn('pt-1', 'pb-4')}>
+            <div className={cn('flex', 'flex-col', 'gap-2')}>
               {userTypes.map((userType) => (
-                <label key={userType} className="flex items-center gap-2.5 text-xs text-text-secondary cursor-pointer select-none hover:text-text-primary">
+                <label key={userType} className={cn('flex', 'items-center', 'gap-2.5', 'text-text-secondary', 'hover:text-text-primary', 'text-xs', 'cursor-pointer', 'select-none')}>
                   <Checkbox />
                   <span>{userType}</span>
                 </label>
@@ -133,9 +134,9 @@ export default function LeftSidebar() {
       </Accordion>
 
       <Button
-        className="w-full mt-1 bg-brand-green hover:bg-brand-green/90 text-white font-medium py-5 px-4 rounded-full  transition-colors flex items-center justify-center gap-2 cursor-pointer text-base"
+        className={cn('flex', 'justify-center', 'items-center', 'gap-2', 'bg-brand-green', 'hover:bg-brand-green/90', 'mt-1', 'px-4', 'py-5', 'rounded-full', 'w-full', 'font-medium', 'text-white', 'text-base', 'transition-colors', 'cursor-pointer')}
       >
-        <Plus className="h-4 w-4" />
+        <Plus className={cn('w-4', 'h-4')} />
         Create Post
       </Button>
     </aside>
