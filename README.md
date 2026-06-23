@@ -17,7 +17,7 @@ Here is the mobile layout view along with a recorded demonstration showcasing th
 
 | Mobile View | Interaction Recording |
 |---|---|
-| ![Mobile Interface View](./public/mobile-view.png) | <video src="./public/mobile-record.mov" width="280" autoplay loop muted playsinline>Your browser does not support the video tag. You can download the video directly below.</video><br>[Download Mobile Recording Demo](./public/mobile-record.mov) |
+| ![Mobile Interface View](./public/mobile-view.png) | ![Mobile Recording Demo](./public/mobile-record.gif) |
 
 ---
 
@@ -53,24 +53,24 @@ Open [http://localhost:3000](http://localhost:3000) in your browser to view the 
 ## Technical Decisions
 
 ### Why TanStack Query
-We integrated **TanStack Query** (v5) to handle client-side data fetching, state caching, and infinite scroll pagination. 
+I integrated **TanStack Query** (v5) to handle client-side data fetching, state caching, and infinite scroll pagination. 
 - **Server State Management:** Instead of writing complex `useEffect` state syncing or global React Context, TanStack Query provides a robust container for handling loading, error, and fetching states out-of-the-box.
-- **Infinite Queries:** Using `useInfiniteQuery` allowed us to abstract away manual index keeping, fetching nextPage parameters, and managing cached page arrays. It significantly keeps components clean and focused.
+- **Infinite Queries:** Using `useInfiniteQuery` allowed me to abstract away manual index keeping, fetching nextPage parameters, and managing cached page arrays. It significantly keeps components clean and focused.
 
 ### Why React Intersection Observer
-To trigger the next page request during scrolling, we implemented **React Intersection Observer** rather than custom scroll event listeners.
-- **Performance Optimization:** Scroll event listeners run on the main thread and require debouncing or throttling to avoid page lag. By using the browser's native `IntersectionObserver` API via `useInView`, we offload scroll detection to a separate thread, resulting in 60fps scrolling.
-- **Developer Experience:** It allows us to define a simple invisible trigger element at the bottom of the feed and react immediately when it enters the viewport.
+To trigger the next page request during scrolling, I implemented **React Intersection Observer** rather than custom scroll event listeners.
+- **Performance Optimization:** Scroll event listeners run on the main thread and require debouncing or throttling to avoid page lag. By using the browser's native `IntersectionObserver` API via `useInView`, this offloads scroll detection to a separate thread, resulting in 60fps scrolling.
+- **Developer Experience:** It allows me to define a simple invisible trigger element at the bottom of the feed and react immediately when it enters the viewport.
 
 ### Why Shadcn/UI & Tailwind CSS v4
-The visual design of the feed requires specific UI patterns (buttons, inputs, skeleton cards). We used **Shadcn/UI** as our baseline component set.
+The visual design of the feed requires specific UI patterns (buttons, inputs, skeleton cards). I used **Shadcn/UI** as my baseline component set.
 - **High Customizability:** Unlike rigid component libraries, Shadcn/UI provides utility-first components that live directly in the codebase.
-- **Tailwind CSS v4 Integration:** We used the newly released Tailwind CSS v4, which moves configuration into a modern CSS-first paradigm. This allowed us to write custom utility overrides without maintaining a heavy JS configuration file.
+- **Tailwind CSS v4 Integration:** I used the newly released Tailwind CSS v4, which moves configuration into a modern CSS-first paradigm. This allowed me to write custom utility overrides without maintaining a heavy JS configuration file.
 
 ### Why a Mock API
-To replicate a production-ready client-server architecture, we built a Next.js API route (`/api/posts/route.ts`).
+To replicate a production-ready client-server architecture, I built a Next.js API route (`/api/posts/route.ts`).
 - **Paginated Mock Feed:** The mock database resides in `src/lib/mock-data.ts`. It includes high-fidelity handcrafted posts and generates an additional 500 records programmatically. This ensures you can scroll indefinitely to evaluate performance.
-- **Visual Validation (Simulated Latency):** We introduced a deliberate `800ms` delay on API requests. This gives the reviewer an opportunity to observe the loading skeleton components and ensures the interface transitions smoothly.
+- **Visual Validation (Simulated Latency):** I introduced a deliberate `800ms` delay on API requests. This gives the reviewer an opportunity to observe the loading skeleton components and ensures the interface transitions smoothly.
 
 ---
 
@@ -78,11 +78,11 @@ To replicate a production-ready client-server architecture, we built a Next.js A
 
 ### Local Font Integration (Open Runde)
 To achieve the exact typographic aesthetic of the Figma design, the **Open Runde** font family was integrated locally.
-- We used Next.js's font optimization (`next/font/local`) to load `.woff` formats (Regular, Medium, Semibold, and Bold).
+- I used Next.js's font optimization (`next/font/local`) to load `.woff` formats (Regular, Medium, Semibold, and Bold).
 - The font is mapped to the `--font-open-runde` CSS variable and declared as the default sans-serif font in Tailwind CSS. This prevents layout shifts (CLS) and ensures immediate, optimized text rendering on load.
 
 ### Design Tokens & Theme Variables
-Rather than scattering hardcoded hex values across the stylesheet, we declared a structured color and spacing hierarchy in `src/app/globals.css`:
+Rather than scattering hardcoded hex values across the stylesheet, I declared a structured color and spacing hierarchy in `src/app/globals.css`:
 - Design values (backgrounds, borders, brand greens, and badges) are defined as semantic CSS variables under `:root` and `@theme inline`.
 - This ensures consistency (e.g., matching the exact brand green `#2f8f63`) and ensures the project is easy to maintain or theme in the future.
 
@@ -93,7 +93,7 @@ All property listing images and user avatars are sourced from **Unsplash**.
 
 ### Icon Implementation (Figma SVGs & Lucide Fallbacks)
 - **Figma SVG Exports:** Key brand assets—such as the "Expert Listing" logo, notification bell, chat bubble, bookmark, and hot badge—were exported directly from the Figma design as SVGs and exported through `src/assets/index.ts`.
-- **Lucide Fallbacks:** In a few instances, exported SVGs from Figma rendered incorrectly (e.g., path distortion, misaligned layers, or missing curves). To preserve a polished interface, we substituted these with matching icons from `lucide-react` (like `MapPin`, `ChevronDown`, `Heart`, and `Tag`). This ensures consistent rendering across all viewports.
+- **Lucide Fallbacks:** In a few instances, exported SVGs from Figma rendered incorrectly (e.g., path distortion, misaligned layers, or missing curves). To preserve a polished interface, I substituted these with matching icons from `lucide-react` (like `MapPin`, `ChevronDown`, `Heart`, and `Tag`). This ensures consistent rendering across all viewports.
 
 ---
 
